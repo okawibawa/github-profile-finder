@@ -20,10 +20,12 @@
 
 .main__search_container {
   position: relative;
+  width: 100%;
+  max-width: 900px;
 }
 
 .main__search_bar {
-  padding: 22px 0 22px 18px;
+  padding: 22px 10rem 22px 18px;
   border-radius: 6px;
   background-color: rgba(68, 78, 82, 0.8);
   border: 0;
