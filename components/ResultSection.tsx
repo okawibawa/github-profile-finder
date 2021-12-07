@@ -36,7 +36,7 @@ const ResultSection = ({ data, repos }: any) => {
         {repos.length > 0 ? (
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-              <p style={{ fontSize: '14px', color: '#c4c4c4', fontWeight: 'bold' }}>Sort:</p>
+              {/* <p style={{ fontSize: '14px', color: '#c4c4c4', fontWeight: 'bold' }}>Sort:</p> */}
             </div>
 
             <div className={styles.repos__container}>
