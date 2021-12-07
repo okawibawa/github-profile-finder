@@ -94,7 +94,7 @@ const Home: NextPage = () => {
           {isLoading === false && <ResultSection data={profile} repos={repos} />}
         </main>
 
-        <footer>
+        <footer style={{ width: '100%' }}>
           <small
             style={{
               color: 'white',
@@ -102,7 +102,9 @@ const Home: NextPage = () => {
               position: 'absolute',
               bottom: 8,
               left: '50%',
+              fontSize: '13px',
               transform: 'translateX(-50%)',
+              textAlign: 'center',
             }}
           >
             Made with 💛 by Oka Wibawa.
