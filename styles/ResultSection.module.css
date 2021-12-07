@@ -58,6 +58,37 @@
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.follower__container {
+  display: flex;
+  align-items: center;
+}
+
+.follower {
+  display: flex;
+  align-items: center;
+}
+
+.dots {
+  margin-left: 6px;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.follower__icon {
+  height: 10px;
+  width: 12px;
+}
+
+.follow__count {
+  margin-left: 6px;
+  font-size: 10px;
 }
 
 @media (max-width: 415px) {
@@ -81,5 +112,26 @@
 
   .no__repo {
     font-size: 1.325rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .follower {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dots {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .follower__icon {
+    display: none !important;
+  }
+
+  .follow__count {
+    margin-left: 0;
   }
 }

@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/ResultSection.module.css';
 
 const ResultSection = ({ data, repos }: any) => {
-  console.log(repos);
+  const [pagination, setPagination] = useState(4);
 
   return (
     <section className={styles.section__container}>
@@ -17,19 +18,13 @@ const ResultSection = ({ data, repos }: any) => {
           <h6 className={styles.description}>{data.bio ? data.bio : '-'}</h6>
 
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Image src="/users.svg" height="10" width="12" alt="users" />
-              <small style={{ marginLeft: '6px', fontSize: '10px' }}>{data.followers} followers</small>
-              <div
-                style={{
-                  marginLeft: '6px',
-                  width: '4px',
-                  height: '4px',
-                  backgroundColor: 'white',
-                  borderRadius: '50%',
-                }}
-              ></div>
-              <small style={{ marginLeft: '6px', fontSize: '10px' }}>{data.following} following</small>
+            <div className={styles.follower__container}>
+              <img src="/users.svg" alt="users" className={styles.follower__icon} />
+              <div className={styles.follower}>
+                <small className={styles.follow__count}>{data.followers} followers</small>
+                <div className={styles.dots}></div>
+                <small className={styles.follow__count}>{data.following} following</small>
+              </div>
             </div>
           </div>
         </div>
@@ -45,7 +40,7 @@ const ResultSection = ({ data, repos }: any) => {
             </div>
 
             <div className={styles.repos__container}>
-              {repos.map((repo: any) => (
+              {repos.slice(0, pagination).map((repo: any) => (
                 <div
                   style={{
                     backgroundColor: '#3D464A',
@@ -82,6 +77,21 @@ const ResultSection = ({ data, repos }: any) => {
                 </div>
               ))}
             </div>
+
+            <button
+              style={{
+                padding: '8px 18px',
+                backgroundColor: 'transparent',
+                border: '1px solid #444C56',
+                borderRadius: '6px',
+                color: 'white',
+                marginTop: '2rem',
+                cursor: 'pointer',
+              }}
+              onClick={() => setPagination(pagination + 4)}
+            >
+              Load More
+            </button>
           </div>
         ) : (
           <h1 className={styles.no__repo}>This user does not have any repos yet 🙁</h1>
