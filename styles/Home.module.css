@@ -54,3 +54,9 @@
   margin-right: 8px;
   font-weight: 600;
 }
+
+@media (max-width: 376px) {
+  .main__title {
+    font-size: 1.225rem;
+  }
+}
